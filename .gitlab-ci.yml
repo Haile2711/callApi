@@ -1,0 +1,24 @@
+image: node:latest
+
+stages:
+    - deploy
+
+deploy-production:
+    stage: deploy
+    environment:
+        name: deploying
+        url: https://dev.timevn.com
+    only:
+        - master
+    before_script:
+        # Run ssh-agent in background:
+        - eval "$(ssh-agent -s)"
+        - chmod 600 gitlab.key
+        # Add SSH Key:
+        - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add - > /dev/null
+        - ssh-add -l
+        # Install pm2:
+        - npm i -g pm2
+    script:
+        - pm2 -v
+        - pm2 deploy ecosystem.config.js production

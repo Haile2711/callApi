@@ -1,0 +1,50 @@
+module.exports = {
+    apps: [
+        {
+            name: 'Nextjs',
+            script: 'yarn',
+            args: 'start',
+            interpreter: '/bin/bash',
+            cwd: '/home/nodejs/base/nextjs/current',
+            error_file: '/home/nodejs/base/nextjs/logs/web.err.log',
+            out_file: '/home/nodejs/base/nextjs/logs/web.out.log',
+            instances: 1,
+            autorestart: true,
+            watch: false,
+            max_memory_restart: '512M',
+            exec_mode: 'cluster',
+            env: {
+                NODE_ENV: 'development',
+                PORT: 6300,
+                PM2_SERVE_PATH: './next',
+                PM2_SERVE_PORT: 6300,
+                PM2_SERVE_SPA: 'true',
+                PM2_SERVE_HOMEPAGE: '/index.html',
+                ENDPOINTAPI: 'http://dev.timevn.com:6300/api/v1',
+            },
+            env_production: {
+                NODE_ENV: 'production',
+                PORT: 6300,
+                PM2_SERVE_PATH: './next',
+                PM2_SERVE_PORT: 6300,
+                PM2_SERVE_SPA: 'true',
+                PM2_SERVE_HOMEPAGE: '/index.html',
+                ENDPOINTAPI: 'http://dev.timevn.com:6300/api/v1',
+            },
+        },
+    ],
+
+    deploy: {
+        production: {
+            user: 'root',
+            key: './gitlab.key',
+            host: 'dev.timevn.com',
+            ref: 'origin/master',
+            repo: 'git@gitlab.com:twinger/nextjs.git',
+            path: '/home/nodejs/base/nextjs',
+            'post-setup': 'yarn; yarn build; cd ..; pm2 start ecosystem.config.js --env production',
+            'post-deploy': 'yarn; yarn build; cd ..; pm2 reload ecosystem.config.js --env production',
+            ssh_options: ['StrictHostKeyChecking=no', 'PasswordAuthentication=no'],
+        },
+    },
+};

@@ -1,0 +1,52 @@
+.contact {
+    width: 70%;
+    display: flex;
+    margin-top: 90px;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 9px 22px 71px -5px rgba(188, 184, 170, 0.22);
+    border-radius: 10px;
+    .wrapper {
+        padding: 51px 67px 51px 67px;
+        .title {
+            .textSm {
+            font-weight: 700;
+            font-size: 12px;
+            line-height: 150%;
+            text-transform: uppercase;
+            color: #FF8A64;
+            }
+            .textLg {
+            font-weight: 700;
+            font-size: 30px;
+            line-height: 150%;                
+            color: #130C61;
+            }
+        }
+        .mail {
+            display: flex;
+            width: 704.5px;
+            height: 44px;
+            .urMail {
+                padding: 10px 20px;
+                width: 100%;
+                margin-right: 20px;
+            }
+            button {
+                width: 134.5px;
+                height: 44px;
+                left: 724.5px;
+                top: 0px;
+                background: #FF8A64;
+                box-shadow: 26px 7px 45px rgba(239, 156, 156, 0.25);
+                border-radius: 5px;
+                border: none;
+                font-weight: 700;
+                font-size: 13px;
+                line-height: 18px;
+                text-align: center;
+                color: #FFFFFF;
+            }
+        }
+    }
+}

@@ -1,0 +1,80 @@
+.topbar{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 60px;
+    background-color: #fff;
+    position:sticky;
+    top: 0;
+    z-index: 999;
+   
+    .wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        .left {
+            width: 179px;
+            height:35px;
+            display: flex;
+            align-items:center;
+            padding-left: 40px;
+            .logo {
+                cursor: pointer;
+                width: 179px;
+                height:35px;
+            }
+        }
+        .right {
+            display: flex;
+            align-items: center;
+            justify-content:center;
+            margin-right: 42px;
+            .searchIcon {
+                cursor: pointer;
+                width:19.38px;
+                height:19.38px;
+            }
+            .language {
+                display: flex;
+                align-items: center;
+                justify-content:center;
+                margin: 0 19px 0 21.62px;
+                .text {
+                    
+                    font-size: 14px;
+                    font-weight:700;
+                    color: #FF8A64;
+                }
+                .icon {
+                    width: 24px;
+                    height: 24px;
+                }
+            }
+            .btnSignUp {
+                padding:7px, 20px, 7px, 20px;
+                margin-right: 9px;
+                width: 82px;
+                height: 32px;
+                border-radius: 5px;
+                border: 1px solid #FF8A64;
+                background-color: #ffffff;
+                box-shadow: 26px 7px 45px rgba(239, 156, 156, 0.25);
+                color:#FF8A64;
+                font-size: 12px;
+                font-weight: 700;
+            }
+            .btnSignIn {
+                width: 78px;
+                height: 32px;
+                padding:7px, 20px, 7px, 20px;
+                background-color:#FF8A64;
+                border: none;   
+                border-radius: 5px;
+                color: #FFFFFF;
+                font-size: 12px;
+                font-weight: 700;
+            }
+        }
+    }
+}
