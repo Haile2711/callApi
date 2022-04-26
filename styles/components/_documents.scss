@@ -56,9 +56,11 @@
             justify-content:center;
             .mySwiper {
                 .swiper-button-next {
+                    right:0;
                     color:#FF8A64;
                 }
                 .swiper-button-prev {
+                    left:0;
                     color:#FF8A64;
                 
                 }
@@ -70,13 +72,14 @@
                 }
             }
             .container {
-                margin: 50px 37px 0 0;
+                margin: 36px  32px;
                 display: flex;
                 align-items: center;
                 flex-direction: column;
                 width: 170px;
                 height: 300px;
                 .imgDocument {
+                    object-fit: cover;
                     width: 170px;
                     height: 200px;
                 }
