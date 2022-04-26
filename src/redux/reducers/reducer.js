@@ -1,30 +1,32 @@
+/* eslint-disable prettier/prettier */
 const initialState = {
-    user: {
-        userInfor: [],
+    userInfor: {
+        user: [],
     },
     documents: {
         document: [],
     },
 };
-
 const rootReducer = (state = initialState, action) => {
     switch (action.type) {
-        case 'GET_USER_INFOR_SUCCESS':
+        case 'GET_USER':
             return {
-                user: {
-                    userInfor: action.payload,
+                ...state,
+                userInfor: {
+                    user: action.payload,
                 },
             };
-        case 'GET_DOCUMENT_SUCCESS':
+        case 'GET_DOCUMENTS':
             return {
+                ...state,
                 documents: {
                     document: action.payload,
                 },
             };
 
-        default:
+        default: {
             return state;
+        }
     }
 };
-
 export default rootReducer;

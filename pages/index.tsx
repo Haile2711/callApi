@@ -34,7 +34,7 @@ const Home = () => {
             <Intro />
             <Card />
             <PostCard />
-            {/* <Talent /> */}
+            <Talent />
             <Project />
             <Guide />
             <Documents />

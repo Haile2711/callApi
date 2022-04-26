@@ -6,14 +6,15 @@ import { Pagination, Navigation, Autoplay } from 'swiper';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import getDocuments from '../../redux/api/apiDocument';
+import { getDocument } from '../../redux/api/apicall';
 
 export default function Documents() {
-    const document = useSelector((state) => state.documents.document.data);
     const dispatch = useDispatch();
+    const document = useSelector((state) => state.documents.document);
+
     useEffect(() => {
-        getDocuments(dispatch);
-    }, []);
+        getDocument(dispatch);
+    }, [dispatch]);
     console.log(document);
     return (
         <div className='documents'>
@@ -42,11 +43,11 @@ export default function Documents() {
                         modules={[Pagination, Navigation, Autoplay]}
                         className='mySwiper'
                     >
-                        {document.map((d) => (
+                        {document.map((doc) => (
                             <SwiperSlide>
                                 <div className='container'>
-                                    <img className='imgDocument' src={d.thumbnail} alt='' />
-                                    <div className='title'>{d.title}</div>
+                                    <img className='imgDocument' src={doc.thumbnail} alt='' />
+                                    <div className='title'>{doc.title}</div>
                                     <div className='items'>
                                         <img src='./assets/heart.png' alt='' />
                                         <button>Download</button>

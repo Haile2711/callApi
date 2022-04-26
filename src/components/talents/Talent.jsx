@@ -6,13 +6,13 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Navigation, Autoplay } from 'swiper';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import getUserInfor from '../../redux/api/apiUser';
+import { getUsers } from '../../redux/api/apicall';
 
 export default function Talent() {
-    const user = useSelector((state) => state.user.userInfor);
+    const user = useSelector((state) => state.userInfor.user);
     const dispatch = useDispatch();
     useEffect(() => {
-        getUserInfor(dispatch);
+        getUsers(dispatch);
     }, [dispatch]);
     console.log(user);
     return (
